@@ -16,12 +16,12 @@ const Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/re
 const CBDIlots = L.Geoserver.wfs("http://localhost:8080/geoserver/Lushi_CBD/wfs", {
     layers: "Lushi_CBD:IlotsCBDgjson",
     style: {
-        color: "black",
+        color: "#de34cc",
         fillOpacity: "0",
         opacity: "1",
     },
     onEachFeature: function (feature, layer) {
-        layer.bindPopup("Nom de l'etablissement : " + feature.properties.Etablissem + '<br>' + '<br>' + "Type d'etablissement : " + feature.properties.Type
+        layer.bindPopup("Nom des etablissements : " + feature.properties.Etablissem + '<br>' + '<br>' + "Types d'etablissements : " + feature.properties.Type
         );
     }
 }).addTo(map);
