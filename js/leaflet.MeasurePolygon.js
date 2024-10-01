@@ -4,16 +4,16 @@
             position: 'topleft',
             icon_active: 'https://img.icons8.com/?size=48&id=98497&format=png',
             icon_inactive: 'https://img.icons8.com/?size=48&id=98463&format=png',
-            html_template: `<p><strong><span style="text-decoration: underline;">Medidas</span></strong></p>
-<p><strong>Area: </strong><br>_p_area</p>
-<p><strong>Perimetro : </strong><br>_p_perimetro</p>`,
+            html_template: `<p><strong><span style="text-decoration: underline;">Mésures faites</span></strong></p>
+<p><strong>Aire: </strong><br>_p_area</p>
+<p><strong>Perimètre : </strong><br>_p_perimetro</p>`,
             height: 130,
             width: 150,
             color_polygon: 'black',
             fillColor_polygon: 'yellow',
             weight_polygon: '2',
             checkonedrawpoligon: false,
-            msj_disable_tool: '¿Desea desabilitar la herramienta?'
+            msj_disable_tool: 'Mauvaise manipulation de l\'outils'
 
         },
 
@@ -23,7 +23,7 @@
             const icon = L.DomUtil.create('a', '', container);
             icon.innerHTML = `<img id="img_plg_measure_polygon" src="${this.options.icon_inactive}" width="24" height="24" alt="Ruler Icon">`;
             icon.href = '#';
-            icon.title = 'Medir área y perímetro';
+            icon.title = 'Mesure du périmètre';
             this.ui_icon = icon;
             L.DomEvent.on(icon, 'click', this._toggleMeasure, this);
 
