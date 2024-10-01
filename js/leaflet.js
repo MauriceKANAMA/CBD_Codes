@@ -50,6 +50,9 @@ const controlMap =
     // Ajout de la fonction de mesure lineaire
     L.control.polylineMeasure().addTo(map);
 
+    // Ajout de la mesure par polygone
+    L.control.measurePolygon().addTo(map);
+
     // Ajout de l'onglet de recherche
     const searchLayer = L.layerGroup().addTo(map);
     map.addControl( new L.Control.Search({
@@ -60,15 +63,6 @@ const controlMap =
 
     // Ajout de l'echelle sur la carte
     L.control.scale().addTo(map);
-    
-    // Ajout de la mesure par polygone
-    L.control.measurePolygon().addTo(map);
 
     //Affichage des coordonnees de la suris sur le map
-    L.control.coordinates(  {
-        position: "center",
-        useDMS:true,
-        useLatLngOrder: true,
-        labelTemplateLat:"{y}",
-	    labelTemplateLng:"{x}"
-    }).addTo(map);
+    L.control.coordinates().addTo(map);

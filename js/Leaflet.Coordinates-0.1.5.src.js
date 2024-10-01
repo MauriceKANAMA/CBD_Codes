@@ -10,19 +10,19 @@ L.Control.Coordinates = L.Control.extend({
 		//decimalseperator used if not using DMS or labelFormatter functions
 		decimalSeperator: ".",
 		//label templates for usage if no labelFormatter function is defined
-		labelTemplateLat: "Lat: {y}",
-		labelTemplateLng: "Lng: {x}",
+		labelTemplateLat: "Latitude: {y}",
+		labelTemplateLng: "Longitude: {x}",
 		//label formatter functions
 		labelFormatterLat: undefined,
 		labelFormatterLng: undefined,
 		//switch on/off input fields on click
 		enableUserInput: true,
 		//use Degree-Minute-Second
-		useDMS: false,
+		useDMS: true,
 		//if true lat-lng instead of lng-lat label ordering is used
 		useLatLngOrder: false,
 		//if true user given coordinates are centered directly
-		centerUserCoordinates: false,
+		centerUserCoordinates: true,
 		//leaflet marker type
 		markerType: L.marker,
 		//leaflet marker properties
