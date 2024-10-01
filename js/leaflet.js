@@ -54,12 +54,12 @@ const controlMap =
     L.control.measurePolygon().addTo(map);
 
     // Ajout de l'onglet de recherche
-    const searchLayer = L.layerGroup().addTo(map);
-    map.addControl( new L.Control.Search({
+    new L.Control.Search({
         layer: baseMap, 
         zoom: '10',
-        propertyName: 'Etablissem'
-    }) );
+        propertyName: 'Etablissem',
+        propertyName: 'Type'
+    }).addTo(map);
 
     // Ajout de l'echelle sur la carte
     L.control.scale().addTo(map);
