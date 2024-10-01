@@ -1,5 +1,8 @@
 #map {
-    height: 600px;
+    margin-top: 61px;
+    margin-bottom: 80px;
+    padding-top: 61px;
+    height: 536px;
     /* position: absolute;
     top: 61px;  */
 }
@@ -12,4 +15,4 @@
     background: #FFF; 
     z-index: 1000; 
     border-radius: 5px; 
-} 
+}

@@ -16,7 +16,8 @@ const Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/re
 const CBDIlots = L.Geoserver.wfs("http://localhost:8080/geoserver/Lushi_CBD/wfs", {
     layers: "Lushi_CBD:IlotsCBDgjson",
     style: {
-        color: "#de34cc",
+        color: "#becf50",
+        strokeWidth: "#becf50",
         fillOpacity: "0",
         opacity: "1",
     },
@@ -45,18 +46,18 @@ const baseMap = L.control.layers({
     'Ilots du CBD': CBDIlots
 }).addTo(map);
 
+const Plugins =
+    // Ajout de la de mesure lineaire
+    L.control.polylineMeasure().addTo(map);
 
-// Ajout de la de mesure lineaire
-L.control.polylineMeasure().addTo(map);
+    // Ajout de l'onglet de recherche
+    L.Control.geocoder({}).addTo(map);
 
-// Ajout de l'onglet de recherche
-L.Control.geocoder({}).addTo(map);
+    // Ajout de l'echelle sur la carte
+    L.control.scale().addTo(map);
 
-// Ajout de l'echelle sur la carte
-L.control.scale().addTo(map);
+    // Ajout de la mesure par polygone
+    L.control.measurePolygon().addTo(map);
 
-// // Ajout de la mesure par polygone
-L.control.measurePolygon().addTo(map);
-
-// Ajout de la position de la souris sur la carte
-L.control.mousePosition().addTo(map);
+    // Ajout de la position de la souris sur la carte
+    L.control.mousePosition().addTo(map);
