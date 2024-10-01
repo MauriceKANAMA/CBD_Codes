@@ -1,5 +1,5 @@
 // Ajout de la position de notre carte sur notre page (GetMap)
-const map = L.map('map').setView([-11.668, 27.482], 15);
+const map = L.map('map', {editable: true}).setView([-11.668, 27.482], 15);
 
 // Fond de carte OSM et ESRI
 const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', 
@@ -36,7 +36,6 @@ const CBDLimits = L.Geoserver.wfs("http://localhost:8080/geoserver/Lushi_CBD/wfs
     }
 }).addTo(map);
 
-
 // // Creation d'un groupe (Layer control)
 const baseMap = L.control.layers({
     'OpenStreetMap':osm,
@@ -46,18 +45,30 @@ const baseMap = L.control.layers({
     'Ilots du CBD': CBDIlots
 }).addTo(map);
 
-const Plugins =
-    // Ajout de la de mesure lineaire
+
+const controlMap =
+    // Ajout de la fonction de mesure lineaire
     L.control.polylineMeasure().addTo(map);
 
     // Ajout de l'onglet de recherche
-    L.Control.geocoder({}).addTo(map);
+    const searchLayer = L.layerGroup().addTo(map);
+    map.addControl( new L.Control.Search({
+        layer: baseMap, 
+        zoom: '10',
+        propertyName: 'Etablissem'
+    }) );
 
     // Ajout de l'echelle sur la carte
     L.control.scale().addTo(map);
-
+    
     // Ajout de la mesure par polygone
     L.control.measurePolygon().addTo(map);
 
-    // Ajout de la position de la souris sur la carte
-    L.control.mousePosition().addTo(map);
+    //Affichage des coordonnees de la suris sur le map
+    L.control.coordinates(  {
+        position: "center",
+        useDMS:true,
+        useLatLngOrder: true,
+        labelTemplateLat:"{y}",
+	    labelTemplateLng:"{x}"
+    }).addTo(map);
