@@ -14,7 +14,7 @@ const Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/re
 
 // Ajout de nos couches sous forme des services WMS (GetCapabilities) depuis Geoserver
 const CBDIlots = L.Geoserver.wfs("http://localhost:8080/geoserver/Lushi_CBD/wfs", {
-    layers: "Lushi_CBD:IlotsCBDgjson",
+    layers: "Lushi_CBD:ilotscbd",
     style: {
         color: "#becf50",
         strokeWidth: "#becf50",
@@ -22,13 +22,13 @@ const CBDIlots = L.Geoserver.wfs("http://localhost:8080/geoserver/Lushi_CBD/wfs"
         opacity: "1",
     },
     onEachFeature: function (feature, layer) {
-        layer.bindPopup("Nom des etablissements : " + feature.properties.Etablissem + '<br>' + '<br>' + "Types d'etablissements : " + feature.properties.Type
+        layer.bindPopup("Nom des etablissements : " + feature.properties.etablissem + '<br>' + '<br>' + "Types d'etablissements : " + feature.properties.type
         );
     }
 }).addTo(map);
 
 const CBDLimits = L.Geoserver.wfs("http://localhost:8080/geoserver/Lushi_CBD/wfs", {
-    layers: "Lushi_CBD:CBDLUSHIgjson",
+    layers: "Lushi_CBD:cbdlushi2024",
     style: {
         color: "black",
         fillOpacity: "0",
@@ -57,8 +57,8 @@ const controlMap =
     new L.Control.Search({
         layer: baseMap, 
         zoom: '10',
-        propertyName: 'Etablissem',
-        propertyName: 'Type'
+        propertyName: 'etablissem',
+        propertyName: 'type'
     }).addTo(map);
 
     // Ajout de l'echelle sur la carte
