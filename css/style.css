@@ -39,35 +39,7 @@ header{
     font-weight: bold;
 }
 
-nav ul{
-    float: left;
-    list-style-type: none; /* Mieux vaut utiliser celui-ci parce qu'il passe mieux */
-}
 
-nav ul::after{
-    content: "";
-    display: table;
-    clear: both;
-}
-
-nav li{
-    float: left;
-    text-align: center;
-}
-
-nav a {
-    font-size: 18px;
-    color: #000;
-    text-decoration: none;
-    margin-left: 50px;
-}
-
-nav a:hover{
-    color: blue;
-    border-bottom: 2px solid blue;
-}
-
-/* Le corps de la page */
 
 main{
     position: absolute;
